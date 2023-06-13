@@ -1,0 +1,48 @@
+ssh s194333@hypatia.fysik.dtu.dk
+
+exit
+
+conda env list
+conda activate openmmlab
+conda deactivate
+python train.py
+CUDA_VISIBLE_DEVICES=0, python train.py
+
+cd mmdetection
+git clone https://github.com/open-mmlab/mmdetection.git
+
+
+gpustat 
+htop
+
+ls
+pip3 show torch
+nvidia-smi
+
+
+
+screen -ls
+
+screen -r -d training
+
+screen -S training
+
+
+# Open new screen
+(openmmlab)[s185231@hypatia ~] screen
+
+# In the screen
+(openmmlab)[s185231@hypatia path_to_folder] python file.py
+
+#Exit screen
+ctrl a & c
+You are now out
+
+# Reenter
+(openmmlab)[s185231@hypatia ~] screen -r
+you are now back inside
+
+# taking up space on gpu but not using it fix
+ps -aux | grep train_model | cut -d" " -f3 | xargs kill -9
+
+
